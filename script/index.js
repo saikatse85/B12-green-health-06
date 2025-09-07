@@ -53,11 +53,11 @@ const displayPlants = (plants) => {
                     <img class="rounded-t-lg h-80 w-full" src="${plant.image}"alt="Plant"/>
                 </figure>
                 <div class="card-body">
-                        <h2 class="card-title">${plant.name}</h2>
+                        <h2 onclick="my_modal_5.showModal()" class="card-title cursor-pointer">${plant.name}</h2>
                         <p>${plant.description}</p>
                     <div class="flex justify-between items-center">
-                        <a class="bg-green-100 p-2 rounded-2xl text-green-600">${plant.category}</a>
-                        <a href=""><i class="fa-solid fa-bangladeshi-taka-sign"></i>${plant.price}</a>
+                        <p class="bg-green-100 p-2 rounded-2xl text-green-600">${plant.category}</p>
+                        <p><i class="fa-solid fa-bangladeshi-taka-sign"></i>${plant.price}</p>
                     </div>
                         <button id="add-to-cart" class="btn bg-green-600 text-white w-full rounded-3xl">Add to Cart</button>
                 </div>
@@ -98,7 +98,7 @@ const showCartItem=(cartItems)=>{
            <div class="p-2 my-2 bg-green-100 rounded-sm">
                 <div class="flex justify-between mx-auto font-bold">
                     <h2>${cartItem.title}</h2>
-                    <a onclick="handleRemoveCart('${cartItem.title}')" class="cursor-pointer">❌</a>
+                    <p onclick="handleRemoveCart('${cartItem.title}')" class="cursor-pointer">❌</p>
                 </div>
                 <p><i class="fa-solid fa-bangladeshi-taka-sign"></i>${cartItem.price}</p>
             </div> 
@@ -114,7 +114,9 @@ const showCartItem=(cartItems)=>{
     }
 }
 // cart container handler
-const handleRemoveCart=(cartItemTitle)=>{
+const handleRemoveCart=( cartItemTitle)=>{
 cartItems=cartItems.filter(item=>item.title !== cartItemTitle)
     showCartItem(cartItems);
 }
+
+// show modal

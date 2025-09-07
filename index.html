@@ -50,7 +50,7 @@
     </ul>
   </div>
   <div class="navbar-end">
-    <a class="btn bg-yellow-400 border-none shadow-none rounded-3xl text-green-600">Plant a Tree</a>
+    <p class="btn bg-yellow-400 border-none shadow-none rounded-3xl text-green-600">Plant a Tree</p>
   </div>
 </div>
     </header>
@@ -62,7 +62,7 @@
                 <h1 class="font-bold text-4xl">Plant a Tree, Grow a Future</h1>
                 <p class="text-lg">Join our mission to plant 1 million trees and make the Earth greener for future
 generations.    </p>
-                <a class="btn bg-yellow-400 border-none rounded-3xl text-green-600">Get Involved</a>
+                <p class="btn bg-yellow-400 border-none rounded-3xl text-green-600">Get Involved</p>
             </div>
             <div><img src="./assets/hero-leaf2.png" alt=""></div>
         </div>
@@ -79,10 +79,9 @@ generations.    </p>
             </div>
             <div id="plants-container" class="col-span-4 grid grid-cols-1 md:grid-cols-3 gap-2">
             </div>
-            <div class="col-span-1 bg-white rounded-lg px-2">
+            <div class="col-span-1 bg-white rounded-lg px-2 md:ml-0 ml-3 w-full">
                 <h1 class="bg-green-600 p-2 rounded-t-lg text-white font-bold text-center">Your cart</h1>
             <div id="cartContainer">
-
             </div>   
             </div>
         </div>
@@ -140,6 +139,24 @@ generations.    </p>
   <footer class="bg-green-900 text-center text-white p-8">
     <p>© 2025 Green Earth. All Rights Reserved.</p>
   </footer>
+
+  <!-- Open the modal using ID.showModal() method -->
+<!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+<dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Hello!</h3>
+    <p class="py-4">Press ESC key or click the button below to close</p>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
+
+
 
 
   <script src="./script/index.js"></script>
