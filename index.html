@@ -71,6 +71,9 @@ generations.    </p>
     <!-- main section -->
      <main class="bg-[#F0FDF4] pt-20">
         <h2 class="text-2xl font-bold text-center">Choose your Trees</h2>
+        <section id="spinner" class="flex justify-center items-center hidden">
+            <span class="loading loading-bars loading-xl"></span>
+        </section>
         <div class="w-11/12 grid grid-cols-1 md:grid-cols-6 gap-2 mx-auto mt-10">
             <div class="col-span-1">
                 <h2 class="font-bold mb-3 text-2xl text-center md:text-left">Categories</h2>
@@ -140,8 +143,7 @@ generations.    </p>
     <p>© 2025 Green Earth. All Rights Reserved.</p>
   </footer>
 
-  <!-- Open the modal using ID.showModal() method -->
-<!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+<!-- modal section -->
 <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
   <div class="modal-box">
     <div id="plant-details-container">

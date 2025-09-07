@@ -25,16 +25,22 @@ const categoriesItem = (categories) => {
             loadPlantCategory(event.target.id);
         }
     });
-    loadPlantCategory('Fruit Tree')
+    // loadPlantCategory('Fruit Tree')
 }
 
 // Plants Load
-const loadPlantCategory = (categoryName) => {
+const loadPlantCategory = (categoryName = null) => {
+    handleSpinner(true)
     const url = "https://openapi.programming-hero.com/api/plants";
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            const categoryPlants = data.plants.filter(plant => plant.category === categoryName);
+            let categoryPlants;
+            if(categoryName){
+                categoryPlants = data.plants.filter(plant => plant.category === categoryName);
+            }else{
+                categoryPlants=data.plants
+            }
             displayPlants(categoryPlants);
         })
         .catch(err => console.log(err));
@@ -44,18 +50,29 @@ const showPlantDetails=async(id)=>{
     const url=`https://openapi.programming-hero.com/api/plant/${id}`
     const response=await fetch(url);
     const data =await response.json();
-    displayPlantDetails(data.plants); 
+    displayPlantDetails(data.plant); 
+}
+//handle spinner
+const handleSpinner=(status)=>{
+    if(status == true){
+        document.getElementById("spinner").classList.remove("hidden");
+        document.getElementById("plants-container").classList.add("hidden");
+    }
+    else{
+        document.getElementById("plants-container").classList.remove("hidden");
+        document.getElementById("spinner").classList.add("hidden");
+    }
 }
 
+
 const displayPlantDetails=(plants)=>{
-    console.log(plants);
     const plantsDetails=document.getElementById('plant-details-container')
     plantsDetails.innerHTML=`
         <div class="p-2 space-x-3">
             <h2 class="font-bold text-2xl">${plants.name}</h2>
             <img class="rounded-md h-80 w-full my-2" src="${plants.image}" alt="">
             <p><span class="font-bold">Category:</span>${plants.category}</p>
-            <p class="my-2"><span class="font-bold">Price:</span><i class="fa-solid fa-bangladeshi-taka-sign"></i>${plants.price}</p>
+            <p class="my-2"><span class="font-bold">Price:</span><i class="fa-solid fa-bangladeshi-taka-sign"></i>${plant.price}</p>
             <p><span class="font-bold">Description:</span>${plants.description}</p>
         </div>
     `
@@ -87,10 +104,11 @@ const displayPlants = (plants) => {
             </div>
         `;
     });
+    handleSpinner(false)
 }
 
 loadCategory();
-loadPlantCategory('Fruit Tree');
+loadPlantCategory();
 
 //added cart container
 let cartItems=[]
