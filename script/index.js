@@ -8,9 +8,15 @@ const loadCategory = () => {
 
 const categoriesItem = (categories) => {
     const categoriesContainer = document.getElementById("category-list");
+    categoriesContainer.innerHTML=`
+    <li id="all-plants" class="bg-green-600 text-white p-2 rounded-md cursor-pointer block w-full">
+            All Plants
+        </li>
+    `
+
     categories.forEach(category => {
         categoriesContainer.innerHTML += `
-            <li id="${category.category_name}" class="hover:bg-green-500 p-2 cursor-pointer">
+            <li id="${category.category_name}" class="hover:bg-green-600 hover:text-white rounded-md p-2 cursor-pointer block w-full">
                 ${category.category_name}
             </li>
         `;
@@ -18,11 +24,17 @@ const categoriesItem = (categories) => {
 
     categoriesContainer.addEventListener("click", (event) => {
         const allLi = document.querySelectorAll('#category-list li');
-        allLi.forEach(li => li.classList.remove('bg-green-500'));
+        allLi.forEach(li => li.classList.remove('bg-green-600','text-white'));
 
         if(event.target.localName === 'li'){
-            event.target.classList.add('bg-green-500');
+            event.target.classList.add('bg-green-600', 'text-white');
             loadPlantCategory(event.target.id);
+        }
+        if(event.target.id==='all-plants'){
+            loadPlantCategory()
+        }
+        else{
+            loadPlantCategory(event.target.id)
         }
     });
     // loadPlantCategory('Fruit Tree')
@@ -50,7 +62,7 @@ const showPlantDetails=async(id)=>{
     const url=`https://openapi.programming-hero.com/api/plant/${id}`
     const response=await fetch(url);
     const data =await response.json();
-    displayPlantDetails(data.plant); 
+    displayPlantDetails(data.plants); 
 }
 //handle spinner
 const handleSpinner=(status)=>{
@@ -72,7 +84,7 @@ const displayPlantDetails=(plants)=>{
             <h2 class="font-bold text-2xl">${plants.name}</h2>
             <img class="rounded-md h-80 w-full my-2" src="${plants.image}" alt="">
             <p><span class="font-bold">Category:</span>${plants.category}</p>
-            <p class="my-2"><span class="font-bold">Price:</span><i class="fa-solid fa-bangladeshi-taka-sign"></i>${plant.price}</p>
+            <p class="my-2"><span class="font-bold">Price:</span><i class="fa-solid fa-bangladeshi-taka-sign"></i>${plants.price}</p>
             <p><span class="font-bold">Description:</span>${plants.description}</p>
         </div>
     `
@@ -93,7 +105,7 @@ const displayPlants = (plants) => {
                     <img class="rounded-t-lg h-80 w-full" src="${plant.image}"alt="Plant"/>
                 </figure>
                 <div class="card-body">
-                        <h2 onclick="showPlantDetails(${plant.id})" class="card-title cursor-pointer">${plant.name}</h2>
+                        <h2 onclick="showPlantDetails('${plant.id}')" class="card-title cursor-pointer">${plant.name}</h2>
                         <p>${plant.description}</p>
                     <div class="flex justify-between items-center">
                         <span class="bg-green-100 p-2 rounded-2xl text-green-600">${plant.category}</span>

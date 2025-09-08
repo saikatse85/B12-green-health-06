@@ -77,7 +77,8 @@ generations.    </p>
         <div class="w-11/12 grid grid-cols-1 md:grid-cols-6 gap-2 mx-auto mt-10">
             <div class="col-span-1">
                 <h2 class="font-bold mb-3 text-2xl text-center md:text-left">Categories</h2>
-                <ul id="category-list" class="flex flex-col gap-2 items-center md:items-start">  
+                <ul id="category-list" class="flex flex-col gap-2 items-center md:items-start">
+
                 </ul>
             </div>
             <div id="plants-container" class="col-span-4 grid grid-cols-1 md:grid-cols-3 gap-2">
@@ -96,18 +97,18 @@ generations.    </p>
             <div class="flex items-center mt-4 md:mt-0">
                 <div class="space-y-5">
                     <p>Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since our start, we’ve planted over 500,000 trees worldwide. By joining our campaign, you help restore forests, create habitats for wildlife, and combat global warming.</p>
-                    <div class="pl-2">
-                        <p><i class="fa-solid fa-circle"></i>Restoration of natural habitats</p>
-                        <p><i class="fa-solid fa-circle"></i>Improvement of air quality</p>
-                        <p><i class="fa-solid fa-circle"></i>Support for local communities</p>
-                    </div>
+                    <ul class="list-disc pl-5">
+                        <li>Restoration of natural habitats</li>
+                        <li>Improvement of air quality</li>
+                        <li>Support for local communities</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 <!-- impact section  -->
  <section class="bg-[#cff0dc] py-20 mt-20">
-    <h2 class="text-2xl font-bold text-center">Choose your Trees</h2>
+    <h2 class="text-2xl font-bold text-center">Our Impact</h2>
     <div class="w-10/12 md:flex justify-between gap-10 mx-auto mt-10">
         <div class="text-center shadow-md bg-white rounded-lg p-10 w-full hover:bg-green-200 hover:text-green-700">
             <h1 class="font-bold text-green-700 text-3xl">500K+</h1>
@@ -130,8 +131,8 @@ generations.    </p>
     <div class="w-full md:w-4/12 mx-auto">
         <h2 class="text-2xl font-bold text-center text-white mb-10">Plant a tree today</h2>
         <form class="bg-green-700 p-5 space-y-4 rounded-lg" action="">
-            <input type="text" placeholder="Type here" class="input w-full" />
-            <input type="text" placeholder="Type here" class="input w-full" />
+            <input type="text" placeholder="Your Name" class="input w-full" />
+            <input type="email" placeholder="Your Email Address" class="input w-full" />
         <div class="dropdown w-full">
             <div tabindex="0" role="button" class="input input-bordered w-full flex justify-between items-center cursor-pointer">
                 <span>Number of trees</span>
@@ -146,7 +147,7 @@ generations.    </p>
             </ul>
         </div>
 
-            <button class="btn btn-xs w-full bg-yellow-400 text-green-600 border-none">Donate Now</button>
+            <button class="btn btn-xs w-full py-5 text-sm rounded-full bg-yellow-400 text-green-600 border-none shadow-none">Donate Now</button>
         </form>
     </div>
  </section>
@@ -160,13 +161,6 @@ generations.    </p>
 <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
   <div class="modal-box">
     <div id="plant-details-container">
-        <div class="p-2 space-x-3">
-            <h2>Plant title</h2>
-            <img class="rounded-md h-80 w-full" src="./assets/hero-leaf1.png" alt="">
-            <p>Category:Talgas</p>
-            <p>Price:<i class="fa-solid fa-bangladeshi-taka-sign"></i>500</p>
-            <p>Description</p>
-        </div>
     </div>
     <div class="modal-action">
       <form method="dialog">
