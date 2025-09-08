@@ -124,6 +124,8 @@ loadPlantCategory();
 
 //added cart container
 let cartItems=[]
+
+let cartId=[];
 const cartContainer=document.getElementById('cartContainer')
 const addToCart=document.getElementById("plants-container");
 addToCart.addEventListener('click', event=>{
@@ -138,6 +140,7 @@ const handleCartItem=(event)=>{
        const priceText=event.target.parentNode.children[2].children[1].innerText
         const price = parseFloat(priceText.slice(0));
         cartItems.push({
+            id:cartId++,
             title:title,
             price:price
         })
@@ -153,7 +156,7 @@ const showCartItem=(cartItems)=>{
            <div class="p-2 my-2 bg-green-100 rounded-sm">
                 <div class="flex justify-between mx-auto font-bold">
                     <h2>${cartItem.title}</h2>
-                    <p onclick="handleRemoveCart('${cartItem.title}')" class="cursor-pointer">❌</p>
+                    <p onclick="handleRemoveCart(${cartItem.id})" class="cursor-pointer">❌</p>
                 </div>
                 <p><i class="fa-solid fa-bangladeshi-taka-sign"></i>${cartItem.price}</p>
             </div> 
@@ -170,8 +173,8 @@ const showCartItem=(cartItems)=>{
     }
 }
 // cart container handler
-const handleRemoveCart=( cartItemTitle)=>{
-cartItems=cartItems.filter(item=>item.title !== cartItemTitle)
+const handleRemoveCart=( cartItemId)=>{
+cartItems=cartItems.filter(item=>item.id !== cartItemId)
     showCartItem(cartItems);
 }
 
