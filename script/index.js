@@ -9,14 +9,14 @@ const loadCategory = () => {
 const categoriesItem = (categories) => {
     const categoriesContainer = document.getElementById("category-list");
     categoriesContainer.innerHTML=`
-    <li id="all-plants" class="bg-green-600 text-white p-2 rounded-md cursor-pointer block w-full">
+    <li id="all-plants" class="bg-green-600 text-white p-2 text-center md:text-left rounded-md cursor-pointer block w-full">
             All Plants
         </li>
     `
 
     categories.forEach(category => {
         categoriesContainer.innerHTML += `
-            <li id="${category.category_name}" class="hover:bg-green-600 hover:text-white rounded-md p-2 cursor-pointer block w-full">
+            <li id="${category.category_name}" class="hover:bg-green-600 hover:text-white rounded-md p-2 text-center md:text-left cursor-pointer block w-full">
                 ${category.category_name}
             </li>
         `;
@@ -162,8 +162,9 @@ const showCartItem=(cartItems)=>{
     
     if(cartItems.length > 0){
         cartContainer.innerHTML+=`
-        <div class="p-2 my-2 bg-green-100 rounded-sm text-right font-bold">
-            <p>Total : <i class="fa-solid fa-bangladeshi-taka-sign"></i>${total}</p>
+        <div class="p-2 my-2 bg-green-100 rounded-sm flex justify-between items-center">
+            <p class="font-bold">Total :</p>
+            <p><i class="fa-solid fa-bangladeshi-taka-sign"></i>${total}</p>
         </div>
         `
     }
